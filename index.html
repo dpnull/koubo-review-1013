@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>字幕版本对比</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>口播字幕 · 三个版本对比</h1>
+  <p class="sub">素材：10月13日 口播（剪映时间线，1.15 倍速）</p>
+  <details class="howto" open>
+    <summary>使用说明</summary>
+    <ol>
+      <li>下面三栏是同一段视频的三份自动字幕，按时间对齐。<b>点任意一句</b>即可从那里播放视频。</li>
+      <li>边听边看，每句右侧点 <span class="pill ok">✓</span> 表示没问题，点 <span class="pill bad">✗</span> 表示有错（再点一次取消）。不用每句都标，标出错的就够了。</li>
+      <li>看完后在最下面选出<b>最准确、改起来最省事</b>的版本，写几句评语。</li>
+      <li>点 <b>导出结果</b> 下载结果文件发回给我；微信里下载不了的话，点 <b>复制结果</b> 后直接粘贴到聊天里。</li>
+    </ol>
+    <p class="note">标记会自动保存在本浏览器里，关掉再打开也还在。默认只看 5 分钟片段，也可以切换到全片（全片只有声音）。</p>
+  </details>
+</header>
+
+<div class="player" id="player">
+  <video id="video" playsinline webkit-playsinline preload="metadata" controls></video>
+  <audio id="audio" preload="none" controls hidden></audio>
+  <div class="player-bar">
+    <span id="clock" class="clock">00:00</span>
+    <label class="chk"><input type="checkbox" id="follow" checked> 跟随播放滚动</label>
+  </div>
+</div>
+
+<nav class="controls">
+  <div class="seg" role="group" aria-label="范围">
+    <button id="viewExcerpt" class="on">5 分钟片段</button>
+    <button id="viewFull">全片</button>
+  </div>
+  <label class="chk"><input type="checkbox" id="showEngine"> 显示识别引擎名称</label>
+  <label class="chk"><input type="checkbox" id="showEn"> English</label>
+</nav>
+
+<section class="stats" id="stats"></section>
+
+<main>
+  <div class="grid-head" id="gridHead"></div>
+  <div id="rows"></div>
+</main>
+
+<section class="final" id="final">
+  <h2>最终评价</h2>
+  <p>哪个版本最准确、需要改的最少？</p>
+  <div class="pick" id="pick"></div>
+  <div class="vcomments" id="vcomments"></div>
+  <label class="block">总体评语<textarea id="comment" rows="4" placeholder="例如：版本二漏了很多重复的句子；版本一错别字少……"></textarea></label>
+  <label class="block">你的名字<input id="reviewer" placeholder="Scarlet"></label>
+  <div class="export">
+    <button id="exportBtn" class="big">导出结果</button>
+    <button id="copyBtn" class="big alt">复制结果</button>
+  </div>
+  <p id="exportMsg" class="note"></p>
+  <textarea id="exportText" class="exporttext" rows="6" readonly hidden></textarea>
+  <p class="note"><button id="resetBtn" class="link">清除我的全部标记</button></p>
+</section>
+<footer class="foot">仅供内部审阅，请勿转发。</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
